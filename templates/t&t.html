@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        TWIST AND TURN YOUR SPEECH
+    </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "style.css" %}">
+</head>
+
+<body>
+    <div class="container">
+        <button class="btn btn1" onclick="window.location.href = '/pitch/';">HIGH RATE </button>
+        <button class="btn btn2" onclick="window.location.href = '/pitc/';">LOW RATE</button>
+        <button class="btn btn3" onclick="window.location.href = '/rev/';">REVERSE</button>
+        <button class="btn btn4" onclick="window.location.href = '/hp/';">HIGH PITCH</button>
+        <button class="btn btn5" onclick="window.location.href = '/lp/';">LOW PITCH</button>
+        <button class="btn btn6" onclick="window.location.href = '/we/';">WITH ECHO</button>
+        <button class="btn btn7" onclick="window.location.href = '/ry/';">ROBOT YEAH!</button>
+        <button class="btn btn8" onclick="window.location.href = '/mip/';">MESS IT UP</button>
+        <button class="btn btn9" onclick="window.location.href = '/org/';">ORIGINAL</button>
+        <form action="/external/" method="post" enctype="multipart/form-data" name="upload" id="upload" role="form">
+        {% csrf_token %}
+            <div class="form-group">
+            <label for="file">FILE TO UPLOAD:</label>
+            <input name="file" type="file" class="form-control" id="input" size="30" required/>
+            </div>
+            <input name="Submit" type="submit" class="btn-default" id="submit" value="Post Audio!/Record Audio" />
+        </form>
+        <audio id="sound" controls></audio>
+        <script src="{% static "b.js" %}"></script>
+    </div>
+</body>
+</html>
